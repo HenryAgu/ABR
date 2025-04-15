@@ -73,12 +73,12 @@ const Footer = () => {
         height={64}
         className="lg:w-[140px] lg:h-[64px] w-20 h-[42px]"
       />
-      <div className="py-10 flex flex-col lg:flex-row items-center gap-3.5">
+      <div className="py-10 flex lg:flex-row flex-col items-center gap-3.5">
         {navMenu.map((item, index) => (
           <Link
             key={index}
             href={item.path}
-            className="uppercase text-sm lg:text-base font-bold text-abr-gray-100 transition-colors duration-200 ease-in-out hover:text-white"
+            className="uppercase flex items-center text-sm lg:text-base font-bold text-abr-gray-100 transition-colors duration-200 ease-in-out hover:text-white"
           >
             <span className="pr-2">{item.title}</span>
             <span className="hidden lg:block">|</span>
@@ -108,10 +108,16 @@ const Footer = () => {
         <p className="text-white font-medium text-sm">
           © Copyright 2021. All Rights Reserved.
         </p>
-        <Link href="" className="text-white font-medium text-sm hover:underline transition-all ease-in duration-200">
+        <Link
+          href=""
+          className="text-white font-medium text-sm hover:underline transition-all ease-in duration-200"
+        >
           Terms & conditions{" "}
         </Link>
-        <Link href="" className="text-white font-medium text-sm hover:underline transition-all ease-in duration-200">
+        <Link
+          href=""
+          className="text-white font-medium text-sm hover:underline transition-all ease-in duration-200"
+        >
           {" "}
           Privacy policy
         </Link>
