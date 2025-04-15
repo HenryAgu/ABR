@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import { CiMenuFries } from "react-icons/ci";
+import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 
 interface NavMenu {
   title: string;
@@ -119,9 +120,9 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <div className="">
-          <button type="button" className="text-sm font-normal text-black" onClick={() => setIsMenuOpen(true)}>
-            Menu
+        <div className="block lg:hidden">
+          <button type="button" onClick={() => setIsMenuOpen(true)}>
+            <CiMenuFries className="text-lg font-normal text-abr-dark-500" />
           </button>
         </div>
         {isMenuOpen && (
@@ -130,21 +131,38 @@ const Navbar = () => {
               isExiting ? "animate-slideUp" : "animate-slideDown"
             }`}
           >
-            <button className="w-fit absolute right-5 text-sm font-normal text-black" onClick={handleClose}>
-              Close
+            <button
+              className="w-fit absolute block lg:hidden right-5"
+              onClick={handleClose}
+            >
+              <IoMdClose className=" text-2xl font-normal text-abr-dark-500" />
             </button>
             <div className="mt-20">
               <ul className="flex flex-col gap-y-3.5">
-                {navMenu.map((item,index)=>(
-                  <li><Link href={item.path} key={index} className="text-sm text-black uppercase border-b border-black font-bold">{item.title}</Link></li>
+                {navMenu.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={item.path}
+                      className="text-sm text-abr-dark-500 uppercase border-b border-black font-bold"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
 
             <div className="mt-10">
               <ul className="flex flex-col gap-y-3.5">
-                {subMenu.map((item,index)=>(
-                  <li><Link href={item.path} key={index} className="text-sm text-black uppercase border-b border-black font-bold">{item.title}</Link></li>
+                {subMenu.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={item.path}
+                      className="text-sm text-abr-dark-500 uppercase border-b border-black font-bold"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
