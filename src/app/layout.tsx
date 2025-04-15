@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${monstserrat.className} antialiased container mx-auto w-full bg-white`}
+        className={`${monstserrat.className} antialiased bg-white`}
       >
         <Navbar/>
         {children}

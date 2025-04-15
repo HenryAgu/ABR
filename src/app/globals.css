@@ -7,8 +7,13 @@
 
 @theme{
   --color-abr-dark-500: #282828;
-  
+  --color-abr-dark-550: #1B1B1B;
+
+  --color-abr-white-150: #FCFCFC;
+
   --color-abr-gray-100: #C9C9C9;
+
+  --color-abr-green-100: #9CCC65;
 }
 
 @theme inline {
