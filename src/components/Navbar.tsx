@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 interface NavMenu {
@@ -64,19 +65,30 @@ const Navbar = () => {
   const searchIcon = "/images/search.svg";
   const playIcon = "/images/play.svg";
   const calenderIcon = "/images/calender.svg";
+
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isExiting, setIsExiting] = useState(false);
+
+  const handleClose = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setIsMenuOpen(false);
+      setIsExiting(false);
+    }, 500);
+  };
   return (
-    <nav className="fixed top-0 left-0 right-0">
-      <div className="container mx-auto w-full bg-abr-white-150  p-5 lg:px-15 py-5 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 bg-abr-white-150">
+      <div className="container mx-auto w-full  p-5 lg:px-15 py-5 flex items-center justify-between">
         <Link href="/">
           <Image
             src={logo}
             alt="logo_image"
             width={108}
             height={51}
-            className="w-[108px] h-[51px]"
+            className="w-20 h-[42px] lg:w-[108px] lg:h-[51px]"
           />
         </Link>
-        <div className="flex items-center gap-x-10">
+        <div className="hidden lg:flex items-center gap-x-10">
           <ul className="flex items-center gap-x-10">
             {navMenu.map((item, index) => (
               <li key={index}>
@@ -107,8 +119,39 @@ const Navbar = () => {
             />
           </div>
         </div>
+        <div className="">
+          <button type="button" className="text-sm font-normal text-black" onClick={() => setIsMenuOpen(true)}>
+            Menu
+          </button>
+        </div>
+        {isMenuOpen && (
+          <div
+            className={`flex flex-col p-5 bg-abr-white-150 text-white absolute top-0 h-screen w-full right-0 animate-slideDown ${
+              isExiting ? "animate-slideUp" : "animate-slideDown"
+            }`}
+          >
+            <button className="w-fit absolute right-5 text-sm font-normal text-black" onClick={handleClose}>
+              Close
+            </button>
+            <div className="mt-20">
+              <ul className="flex flex-col gap-y-3.5">
+                {navMenu.map((item,index)=>(
+                  <li><Link href={item.path} key={index} className="text-sm text-black uppercase border-b border-black font-bold">{item.title}</Link></li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10">
+              <ul className="flex flex-col gap-y-3.5">
+                {subMenu.map((item,index)=>(
+                  <li><Link href={item.path} key={index} className="text-sm text-black uppercase border-b border-black font-bold">{item.title}</Link></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
-      <div className="flex">
+      <div className="hidden lg:flex container mx-auto w-full">
         <div className="basis-[40%] h-fit relative">
           <Image
             src="/images/background.png"
@@ -149,7 +192,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="basis-[60%] bg-abr-dark-550 flex gap-x-5 items-center py-5 px-14 justify-end text-white">
+        <div className="basis-[60%] bg-abr-dark-550 hidden lg:flex gap-x-5 items-center py-5 px-14 justify-end text-white">
           |
           {subMenu.map((item, index) => (
             <Link
@@ -164,7 +207,9 @@ const Navbar = () => {
                 height={18}
                 className="h-4.5 w-4.5"
               />
-              <p className="text-[15px] text-white font-bold group-hover:underline">{item.title}</p>
+              <p className="text-[15px] text-white font-bold group-hover:underline">
+                {item.title}
+              </p>
             </Link>
           ))}
         </div>

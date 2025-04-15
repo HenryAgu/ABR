@@ -5,15 +5,15 @@
   --foreground: #171717;
 }
 
-@theme{
+@theme {
   --color-abr-dark-500: #282828;
-  --color-abr-dark-550: #1B1B1B;
+  --color-abr-dark-550: #1b1b1b;
 
-  --color-abr-white-150: #FCFCFC;
+  --color-abr-white-150: #fcfcfc;
 
-  --color-abr-gray-100: #C9C9C9;
+  --color-abr-gray-100: #c9c9c9;
 
-  --color-abr-green-100: #9CCC65;
+  --color-abr-green-100: #9ccc65;
 }
 
 @theme inline {
@@ -21,7 +21,52 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-monst: var(--font-monst)
+  --font-monst: var(--font-monst);
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-slideDown {
+    animation: slideDown 0.5s ease-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
