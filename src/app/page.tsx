@@ -1,4 +1,5 @@
 import Advert from "@/components/Advert";
+import AbrCategories from "@/components/Home/AbrCategories";
 import EditorsPick from "@/components/Home/EditorsPick";
 import NewlyAdded from "@/components/Home/NewlyAdded";
 import Trending from "@/components/Home/Trending";
@@ -11,6 +12,7 @@ export default function Home() {
         <EditorsPick />
         <Trending />
         <NewlyAdded />
+        <AbrCategories/>
       </div>
     </main>
   );

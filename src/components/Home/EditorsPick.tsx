@@ -9,7 +9,7 @@ const EditorsPick = () => {
         <h4 className="font-bold text-xl lg:text-2xl text-abr-dark-500">
           EDITOR’S PICKS
         </h4>
-        <div className="flex items-center gap-x-0.5">
+        <div className="flex gap-x-0.5">
           <span className="font-bold text-abr-red-500">|</span>
           <p className="text-sm lg:text-base font-semibold text-abr-gray-500">
             Featured Episodes
