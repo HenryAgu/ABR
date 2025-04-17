@@ -24,7 +24,7 @@ const Trending = () => {
         </div>
         <div className="my-10 flex gap-x-5 overflow-x-auto">
           {[...images].map((src, index) => (
-            <div className="max-w-[288px] shrink-0">
+            <div className="max-w-[288px] shrink-0" key={index}>
               <img
                 key={index}
                 src={src}
