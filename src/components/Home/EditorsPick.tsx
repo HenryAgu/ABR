@@ -17,7 +17,7 @@ const EditorsPick = () => {
         </div>
         <div className="mt-5 flex flex-col lg:flex-row gap-x-5">
           <div
-            className="basis-[50%] w-full h-[561px] bg-cover bg-center flex flex-col justify-end"
+            className="basis-[50%] w-full h-[561px] bg-cover bg-center flex flex-col justify-end rounded-[3px]"
             style={{ backgroundImage: "url('/images/top-pick1.png')" }}
           >
             <div className="bg-abr-overlay p-4 flex items-center gap-x-3">
