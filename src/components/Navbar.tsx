@@ -78,7 +78,7 @@ const Navbar = () => {
     }, 500);
   };
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-abr-white-150">
+    <nav className="fixed top-0 left-0 right-0 bg-abr-white-150 z-50">
       <div className="container mx-auto w-full  p-5 lg:px-15 py-5 flex items-center justify-between">
         <Link href="/">
           <Image
