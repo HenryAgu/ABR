@@ -23,7 +23,7 @@ const Trending = () => {
             Featured Podcasts
           </p>
         </div>
-        <div className="my-10 flex gap-x-5 overflow-x-auto">
+        <div className="mt-10 flex gap-x-5 overflow-x-auto">
           {[...images].map((src, index) => (
             <div className="max-w-[288px] shrink-0" key={index}>
               <Image
@@ -32,7 +32,7 @@ const Trending = () => {
                 alt={`Image ${index + 1}`}
                 width={288}
                 height={424}
-                className="w-full h-[424px] object-cover"
+                className="max-w-[288px] h-[424px] object-cover"
               />
             </div>
           ))}

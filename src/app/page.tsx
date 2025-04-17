@@ -1,5 +1,6 @@
 import Advert from "@/components/Advert";
 import EditorsPick from "@/components/Home/EditorsPick";
+import NewlyAdded from "@/components/Home/NewlyAdded";
 import Trending from "@/components/Home/Trending";
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
       <div className="mt-22 lg:mt-45">
         <Advert />
         <EditorsPick />
-        <Trending/>
+        <Trending />
+        <NewlyAdded />
       </div>
     </main>
   );
